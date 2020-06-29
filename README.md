@@ -1,5 +1,5 @@
 # Password Generator
-![website snapshot](./images/snapshot.png)
+![website snapshot](./Images/snapshot.png)
 
 Generates a random password based on the requirements of the user.
 
