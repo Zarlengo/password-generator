@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom sheets -->
     <link rel="stylesheet" href="./css/style.css" />
     <script type="text/javascript" src="./scripts/script.js"></script>
   </head>
@@ -17,11 +17,13 @@
       <div class="card">
         <section class="card-header">
           <h2>Generate a Password</h2>
+          <!-- Clickable icon to copy the password to the clipboard -->
           <div class="copy">
             <img id="copy2clipboard" class="copy-icon" src="https://img.icons8.com/windows/32/000000/copy.png"/>
           </div>
         </section>
         <hr>
+        <!-- Password display window -->
         <section class="card-body">
           <textarea
             readonly
@@ -30,18 +32,24 @@
             aria-label="Generated Password"
           ></textarea>
         </section>
+        <!-- Footer section, generate password and options selections -->
         <footer class="card-footer">
           <div class="left-side side">
             <button id="generate" class="btn generate">Generate Password</button>
           </div>
+          <!-- Options selectors -->
           <div class="right-side side">
             <div class="options-container">
+              <!-- Password length selector -->
               <div class="options">
-                <div class="slidecontainer"><span>Password Length:&nbsp;&nbsp;</span><span id="f" style="font-weight:bold;color:red">24</span><br>
+                <div class="slide-container">
+                  <span>Password Length:&nbsp;&nbsp;</span>
+                  <span id="f">24</span>
+                  <br>
                   <button id="leftButton" class="btn btn-default arrow-btn" type="button" value="-1">
                     <i class="arrow left"></i>
                   </button>
-                  <div class="slide-container" style="fill: #35e300;display: inline-block; stroke: none;">
+                  <div class="slide-container">
                     <input type="range" min="8" max="128" value="24" class="slider" id="passwordLength">
                   </div>
                   <button id="rightButton" class="btn btn-default arrow-btn" type="button" value="1">
@@ -49,32 +57,33 @@
                   </button>
                 </div>
               </div>
+              <!-- Option choices for the password -->
               <div class="options">
-                <input type="checkbox" id="uppercase" name="uppercase" value="true" checked>
-                <label for="uppercase">&nbsp;&nbsp;Uppercase</label>
+                <input type="checkbox" id="uppercase" checked>
+                <label for="uppercase">Uppercase</label>
               </div>
               <div class="options">
-                <input type="checkbox" id="lowercase" name="lowercase" value="true" checked>
-                <label for="lowercase">&nbsp;&nbsp;Lowercase</label>
+                <input type="checkbox" id="lowercase" checked>
+                <label for="lowercase">Lowercase</label>
               </div>
               <div class="options">
-                <input type="checkbox" id="numbers" name="numbers" value="true" checked>
-                <label for="numbers">&nbsp;&nbsp;Numbers</label>
+                <input type="checkbox" id="numbers" checked>
+                <label for="numbers">Numbers</label>
               </div>
               <div class="options">
-                <input type="checkbox" id="symbols" name="symbols" value="true" checked>
-                <label for="symbols">&nbsp;&nbsp;Special Characters</label>
+                <input type="checkbox" id="symbols" checked>
+                <label for="symbols">Special Characters</label>
               </div>
             </div>
           </div>
         </footer>
+        <!-- Reference to source for the copy icon, per usage agreement -->
         <a href="https://icons8.com/icon/15047/copy" class="icon-credit">Copy icon by Icons8</a>
       </div>
     </div>
-    <!-- The Modal -->
+    <!-- Overlay modal to notify the user that the password has been copied -->
     <div class="modal-container">
-      <div id="myModal" class="modal">
-        <!-- Modal content -->
+      <div class="modal">
         <p>Password has been copied.</p>
       </div>
     </div>

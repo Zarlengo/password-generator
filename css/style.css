@@ -2,6 +2,9 @@
 :root {
     --main-red-back-color: #af0808;
     --main-white-font-color: #fff;
+    --main-dark-font-color: #3b4954;
+    --background-color: #f9fbfd;
+    --card-color: #fff;
 }
 
 * {
@@ -18,58 +21,43 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: var(--background-color);
   min-width: 320px;
 }
 
+/* Main password section */
 .wrapper {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 30px 20px 0 20px;
 }
 
+/* Card header */
 header {
   text-align: center;
-  padding: 20px;
-  padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  padding: 0 20px 20px 20px;
+  color: var(--main-dark-font-color);
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
-  border-radius: 5px;
-  border-width: 1px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
-  color: hsl(206, 17%, 28%);
-  font-size: 18px;
-  margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
-}
-
-hr {
-  content: " ";
-  display: block;
-  width: 100%;
-  background: #e7e9eb;
-  height: 2px;
-}
-
-.card-body {
-  min-height: 100px;
+  margin: 0 auto;
+  border-radius: 5px;
+  border-width: 1px;
+  color:var(--main-dark-font-color);
+  background-color: var(--card-color);
+  box-shadow: var(--main-dark-font-color) 0px 2px 8px 0px;
+  font-size: 18px;
 }
 
 .card-header {
   display: flex;
-  flex-direction: row;
   align-items: space-between;
+  flex-direction: row;
   justify-content: space-between;
 }
 
-.copy-icon {
-  height: 35px;
-  width: 35px;
-  cursor: pointer;
+h2 {
+  display: inline-block;
 }
 
 .copy {
@@ -78,59 +66,17 @@ hr {
   justify-content: center;
 }
 
-.card-footer {
-  text-align: center;
-}
-
-.icon-credit {
-  font-size: 12px;
-  right: 0;
-}
-
-h2 {
-  display:inline-block;
-}
-
-.btn {
-  background-color: var(--main-red-back-color);
-  color: #FFF;
-  border: none;
+.copy-icon {
+  height: 35px;
+  width: 35px;
   cursor: pointer;
-  text-align: center;
-  display: inline-block;
-
 }
 
-button:focus {
-    outline: none;
+hr {
+  width: 100%;
+  background: var(--main-dark-font-color);
 }
 
-.generate {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
-  font-size: 22px;
-  line-height: 22px;
-  margin: 16px 16px 16px 20px;
-  padding: 14px 34px;
-  height: 60px;
-  width: 300px;
-  border-radius: 25px;
-}
-
-.arrow-btn {
-  padding: 6px 12px;
-  border-radius: 10px;
-
-}
-
-button[disabled] {
-  cursor: default;
-  background: #c0c7cf;
-}
-
-.float-right {
-  float: right;
-}
 
 #password {
   -webkit-appearance: none;
@@ -139,48 +85,21 @@ button[disabled] {
   border: none;
   display: block;
   width: 100%;
-  padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 85px;
+  height: 260px;
+  padding: 15px;
   font-size: 1.2rem;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
+  border: 2px dashed var(--main-dark-font-color);
   border-radius: 6px;
   resize: none;
   overflow: hidden;
 }
 
-.arrow {
-  border: solid #FFF;
-  color: #fff;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-}
-
-.arrow-btn {
-  display:none;
-}
-
-.right {
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-}
-
-.left {
-  transform: rotate(135deg);
-  -webkit-transform: rotate(135deg);
-}
-
-.slider {
-  background-color: var(--main-red-back-color);
-  color: var(--main-white-font-color);
-}
-
+/* Footer section */
 .card-footer {
+  text-align: center;
   display: flex;
   flex-direction: row;
   align-items: space-around;
@@ -189,82 +108,133 @@ button[disabled] {
 }
 
 .side {
+  width: 300px;
+  margin-top: 15px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
+}
+
+.btn {
+  border: none;
+  color: var(--main-white-font-color);
+  background-color: var(--main-red-back-color);
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+}
+
+button:focus {
+  outline: none;
+}
+
+.generate {
+  height: 60px;
   width: 300px;
+  padding: 14px 34px;
+  margin: 16px 16px 16px 20px;
+  border-radius: 25px;
+  font-size: 22px;
+  line-height: 22px;
 }
 
-
+/* Options selectors */
 .options {
-  margin: 0 45px;
-  text-align: left;
-  width: 150px;
-  margin: 3px;
   width: 100%;
-
+  margin: 3px;
+  text-align: left;
 }
 
-/* The Modal (background) */
+.slide-container {
+  display: inline-block;
+}
+
+.slide-container span {
+  text-align: center;
+}
+
+#f {
+  font-weight: bold;
+  color: var(--main-red-back-color);
+}
+
+.arrow-btn {
+  padding: 6px 12px;
+  border-radius: 10px;
+  display:none;
+}
+
+.arrow {
+  padding: 3px;
+  border: solid var(--main-white-font-color);
+  border-width: 0 3px 3px 0;
+  color: var(--main-white-font-color);
+  display: inline-block;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.slider {
+  color: var(--main-white-font-color);
+  background-color: var(--main-red-back-color);
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.icon-credit {
+  font-size: 12px;
+  right: 0;
+}
+
+/* Password copied notification */
 .modal-container {
-  display: none;
   position: absolute;
   top: 100px;
-  margin: 0 auto;
   width: 100%;
   height: 60px;
-  flex-direction: row;
+  z-index: 1;
+  display: none;
   align-items: center;
+  flex-direction: row;
   justify-content: center;
 }
 
 .modal {
-  /*position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: var(--main-red-back-color);
-  border: 1px black solid;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
   width: 250px;
-}
-
-/* Modal Content/Box */
-.modal p {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  border: 1px black solid;
+  border-radius: 20px;
   color: var(--main-white-font-color);
+  background-color: var(--main-red-back-color);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
 }
 
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
-
+/* Hides arrows when screen is too small */
 @media (min-width: 380px) {
-
   .arrow-btn {
     display: inline-block;
   }
+}
 
+/* Hides arrows when screen is too small */
+@media (min-width: 440px) {
+  #password {
+    height: 160px;
+  }
+}
 
+/* Hides arrows when screen is too small */
+@media (min-width: 830px) {
+  #password {
+    height: 100px;
+  }
 }

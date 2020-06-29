@@ -11,16 +11,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
     input_options.numbers = document.querySelector("#numbers").checked;
     input_options.special = document.querySelector("#symbols").checked;
 
-    var password = generatePassword(input_options);
-    var passwordText = document.querySelector("#password");
-
-    passwordText.value = password;
-
+    document.querySelector("#password").value = generatePassword(input_options);
   }
 
   function generatePassword(input_options) {
     let char_options = [];
     let array_count = 0;
+    // If the Uppercase checkbox is selected
     if (input_options.upper) {
       let char_array = [];
       for (let i = 65; i <= 89; i++) {
@@ -30,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       array_count++;
     }
 
+    // If the Lowercase checkbox is selected
     if (input_options.lower) {
       char_options.lower = [];
       let char_array = [];
@@ -40,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       array_count++;
     }
 
+    // If the Numbers checkbox is selected
     if (input_options.numbers) {
       char_options.numbers = [];
       let char_array = [];
@@ -50,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       array_count++;
     }
 
+    // If the Special Characters checkbox is selected
     if (input_options.special) {
       char_options.special = [];
       let char_array = [];
@@ -68,10 +68,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
       char_options.push(char_array);
       array_count++;
     }
+
+    // If no checkbox is selected
     if (array_count == 0) {
       return "Not enough options selected"
     }
 
+    // Picks a random array index, and then a random character from that array
     let final_string = "";
     let array_choice = [];
     let array_select = 0;
@@ -82,20 +85,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
       char_select = Math.floor(Math.random() * array_choice.length);
       final_string = final_string.concat(String.fromCharCode(array_choice[char_select]));
     }
+
+    // Returns the string back to the calling function
     return final_string;
   }
 
+  // Function to update the slider when the left or right button is pressed
   function moveSlider(direction) {
     document.querySelector("#passwordLength").value = parseInt(document.querySelector("#passwordLength").value) + direction;
     document.querySelector("#f").innerText = document.querySelector("#passwordLength").value;
   }
 
+  // Updates the length text if the slider is moved
   function updateSlider() {
     document.querySelector("#f").innerText = document.querySelector("#passwordLength").value;
   }
 
+  // Function to copy the password into the clipboard
   function copyPassword() {
     var passwordText = document.querySelector("#password").value;
+    // Checks if the password was generated
     if (passwordText != "" && passwordText != "Not enough options selected") {
       var tempElement = document.createElement("textarea");
       document.body.appendChild(tempElement);
@@ -103,6 +112,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       tempElement.select();
       document.execCommand("copy");
       document.body.removeChild(tempElement);
+      // Shows an overlay to the user that the password was copied, automatically disappears after 1.5 seconds
       document.querySelector(".modal-container").style.display = "flex";
       setTimeout(function() {document.querySelector(".modal-container").style.display = "none";}, 1500);
     }
