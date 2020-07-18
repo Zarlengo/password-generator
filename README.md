@@ -1,4 +1,4 @@
-# Password Generator
+# [Password Generator](https://zarlengo.github.io/password-generator/)
 ![website snapshot](./Images/snapshot.png)
 
 Generates a random password based on the requirements of the user.
